@@ -4,10 +4,14 @@
 
 $sitePad: 40px;
 $gutter: 40px;
+$triangleOffset: 60px;
+
 $green: #C7D317;
 $grey: #4a4a4a;
 $lightGrey: #F5F5F5;
+$darkGrey: #323237;
 $red: #FB6045;
+
 $eesti: 'GT Eesti Pro Display';
 $openSans: 'Open Sans', sans-serif;
 
@@ -116,41 +120,19 @@ table {
   font-weight: 700;
 }
 
-/***********************/
-/******* STYLES ********/
-/***********************/
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  transition: .2s all ease;
-}
-
-body {
-  background: #fff;
-  font-family: $openSans;
-  font-weight: 500;
-  font-smoothing: antialiased;
-  font-size: 18px;
-  color: $grey;
-}
-
-section {
-  padding: 80px $sitePad;
-
-  @include mobile {
-    padding: 30px calc(#{$sitePad} / 2);
-  }
-}
-
 h1 {
-  color: $green;
+  color: $grey;
   font-family: $eesti;
   font-size: 46px;
   font-weight: 700;
   line-height: .93;
-  margin: 0 0 20px;
+  margin: 0 0 50px;
+  text-align: center;
+  text-transform: capitalize;
+
+  .darkBG & {
+    color: white;
+  }
 }
 
 h2 {
@@ -158,8 +140,12 @@ h2 {
   font-size: 26px;
   font-weight: 700;
   color: $grey;
-  margin: 20px 0 10px;
+  margin: 0 0 10px;
   line-height: 1.3;
+
+  .darkBG & {
+    color: white;
+  }
 }
 
 h3 {
@@ -177,6 +163,10 @@ p {
   line-height: 1.4;
   margin-bottom: 10px;
 
+  .darkBG & {
+    color: white;
+  }
+
   a {
     &:link,
     &:active,
@@ -186,6 +176,94 @@ p {
     &:hover {
       opacity: .8;
     }
+  }
+}
+
+/***********************/
+/***** NAVIGATION ******/
+/***********************/
+
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  background: $darkGrey;
+  z-index: 5;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px $sitePad;
+
+  @include mobile {
+    padding: 10px calc(#{$sitePad} / 2);
+  }
+}
+
+nav a {
+  margin-left: 20px;
+  text-transform: uppercase;
+
+  &:active,
+  &:visited,
+  &:link {
+    color: white;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/***********************/
+/****** STRUCTURE ******/
+/***********************/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition: .2s all ease;
+}
+
+body {
+  background: #fff;
+  font-family: $eesti;
+  font-weight: 500;
+  font-smoothing: antialiased;
+  font-size: 18px;
+  color: $grey;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 80px $sitePad;
+
+  @include mobile {
+    padding: 30px calc(#{$sitePad} / 2);
+  }
+}
+
+.section--angled {
+  clip-path: polygon(0 $triangleOffset, 50% 0, 100% $triangleOffset, 100% 100%, 50% calc(100% - #{$triangleOffset}),0 100%);
+  margin-bottom: -#{$triangleOffset};
+  margin-top: -#{$triangleOffset};
+  padding: 80px $sitePad 140px;
+  position: relative;
+
+  &::before {
+    content: 'test';
+    position: absolute;
+    clip-path: polygon(0 $triangleOffset, 50% 0, 100% $triangleOffset, 100% 75px, 50% calc(75px - #{$triangleOffset}),0 75px);
+    background: $green;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
   }
 }
 
@@ -211,10 +289,25 @@ footer a {
   }
 }
 
+.heroPhoto {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  left: 0;
+  height: 100vh;
+  background: $green;
+
+  img {
+    object-fit: cover;
+    max-width: 100%;
+    min-height: 100%;
+  }
+}
+
 .photoBG {
   min-height: 100vh;
-  background: url('../img/bg.jpg') no-repeat left center $green;
-  background-size: cover;
+  // background: url('../img/bg.jpg') no-repeat left center $green;
+  // background-size: cover;
   color: #fff;
   margin: 0;
   display: flex;
@@ -247,24 +340,37 @@ footer a {
 }
 
 .greyBG {
-  background: #F6F6F6;
+  background: url('https://www.toptal.com/designers/subtlepatterns/patterns/concrete_wall_2.png') repeat #F6F6F6;
+
+  &.section--angled {
+    &::before {
+      background: white;
+    }
+  }
+}
+
+.darkBG {
+  background: $grey;
+
+  &.section--angled {
+    &::before {
+      background: none;
+    }
+  }
+}
+
+.rightAlign {
+  text-align: right;
 }
 
 .logo {
-  width: 200px;
-  float: right;
-
-  @include mobile {
-    // width: 170px;
-    float: none;
-    margin-bottom: 50px;
-  }
+  width: 150px;
 }
 
 #lift path {
   // fill: $grey;
-  fill: white;
-  // fill: $green;
+  // fill: white;
+  fill: $green;
 
   @include mobile {
     fill: $green;
@@ -272,9 +378,9 @@ footer a {
 }
 
 #oo path {
-  // fill: $green;
+  fill: $green;
   // fill: $grey;
-  fill: white;
+  // fill: white;
 
   @include mobile {
     fill: $green;
@@ -282,8 +388,8 @@ footer a {
 }
 
 #opencontractingpartnership path {
-  // fill: white;
-  fill: $grey;
+  fill: white;
+  // fill: $grey;
 
   @include mobile {
     fill: white;
@@ -308,6 +414,8 @@ footer a {
   h1 {
     font-size: 90px;
     color: #fff;
+    text-align: left;
+    margin-bottom: 20px;
 
     @include tablet {
       font-size: 75px;
@@ -320,6 +428,7 @@ footer a {
 
   p {
     font-size: 26px;
+    color: $grey;
 
     @include tablet {
       font-size: 24px;
@@ -373,11 +482,28 @@ footer a {
 
 }
 
+.subSection__column--centered {
+  > * {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
 .subSection__column--flex2 {
   flex: 2;
 
   @include mobile {
     flex: 1;
+  }
+}
+
+.subSection__column__highlight {
+  font-size: 36px;
+  text-align: right;
+
+  @include mobile {
+    text-align: left;
   }
 }
 
@@ -410,62 +536,18 @@ input {
   border: 0;
 }
 
-/* MailChimp Form Embed Code - Classic - 12/17/2015 v10.7 */
-#mc_embed_signup form {display:block; position:relative; text-align:left;}
-#mc_embed_signup h2 {font-weight:bold; padding:0; margin:15px 0; font-size:1.4em;}
-#mc_embed_signup input {border: 0px solid #ABB0B2; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
-#mc_embed_signup input[type=checkbox]{-webkit-appearance:checkbox;}
-#mc_embed_signup input[type=radio]{-webkit-appearance:radio;}
-#mc_embed_signup input:focus {border-color:#333;}
-#mc_embed_signup .button {clear:both; background-color: #aaa; border: 0 none; border-radius:4px; transition: all 0.23s ease-in-out 0s; color: #FFFFFF; cursor: pointer; display: inline-block; font-size:15px; font-weight: normal; height: 32px; line-height: 32px; margin: 0 5px 10px 0; padding: 0 22px; text-align: center; text-decoration: none; vertical-align: top; white-space: nowrap; width: auto;}
-#mc_embed_signup .button:hover {background-color:#777;}
-#mc_embed_signup .small-meta {font-size: 11px;}
-#mc_embed_signup .nowrap {white-space:nowrap;}
-
-#mc_embed_signup .mc-field-group {clear:left; position:relative; width:96%; padding-bottom:3%; min-height:50px;}
-#mc_embed_signup .size1of2 {clear:none; float:left; display:inline-block; width:46%;}
-#mc_embed_signup .mc-field-group label {display:block; margin-bottom:3px;}
-#mc_embed_signup .mc-field-group input {display:block; width:100%; padding:8px 0; text-indent:2%;}
-#mc_embed_signup .mc-field-group select {display:inline-block; width:99%; padding:5px 0; margin-bottom:2px;}
-
-#mc_embed_signup .datefield, #mc_embed_signup .phonefield-us{padding:5px 0;}
-#mc_embed_signup .datefield input, #mc_embed_signup .phonefield-us input{display:inline; width:60px; margin:0 2px; letter-spacing:1px; text-align:center; padding:5px 0 2px 0;}
-#mc_embed_signup .phonefield-us .phonearea input, #mc_embed_signup .phonefield-us .phonedetail1 input{width:40px;}
-#mc_embed_signup .datefield .monthfield input, #mc_embed_signup .datefield .dayfield input{width:30px;}
-#mc_embed_signup .datefield label, #mc_embed_signup .phonefield-us label{display:none;}
-
-#mc_embed_signup .indicates-required {text-align:right; font-size:11px;}
-#mc_embed_signup .asterisk {color:#e85c41; font-size:150%; font-weight:normal; position:relative; top:5px;}
-#mc_embed_signup .clear {clear:both;}
-
-#mc_embed_signup .mc-field-group.input-group ul {margin:0; padding:5px 0; list-style:none;}
-#mc_embed_signup .mc-field-group.input-group ul li {display:block; padding:3px 0; margin:0;}
-#mc_embed_signup .mc-field-group.input-group label {display:inline;}
-#mc_embed_signup .mc-field-group.input-group input {display:inline; width:auto; border:none;}
-
-#mc_embed_signup div#mce-responses {overflow:hidden; clear: both;}
-#mc_embed_signup div.response {margin:20px 0; padding:1em .5em .5em 0; font-weight:bold; float:left; top:-1.5em; z-index:1; width:80%;}
-#mc_embed_signup #mce-error-response {display:none;}
-#mc_embed_signup #mce-success-response {color: $green; display:none;}
-#mc_embed_signup label.error {display:block; float:none; width:auto; text-align:left;}
-
-#mc-embedded-subscribe {clear:both; width:auto; display:block; margin:1em 0 1em 5%;}
-#mc_embed_signup #num-subscribers {font-size:1.1em;}
-#mc_embed_signup #num-subscribers span {padding:.5em; border:1px solid #ccc; font-weight:bold;}
-
-#mc_embed_signup #mc-embedded-subscribe-form div.mce_inline_error {display:inline-block; margin:2px 0 1em 0; padding:5px 10px; background-color:rgba(255,255,255,0.85); -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; font-size:14px; font-weight:normal; z-index:1; color:#e85c41;}
-#mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error {border:2px solid #e85c41;}
-
-#mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;}
-#mergeRow-gdpr,
-#mergeRow-gdpr p {
-  margin-top: 20px;
-  font-size: 14px;
-  line-height: 1.4;
-}
-#mergeRow-gdpr fieldset label {font-weight: normal;}
-#mc-embedded-subscribe-form .mc_fieldset{border:none;min-height: 0px;padding-bottom:0px;}
-
 ::placeholder {
   color: gray;
+}
+
+/***********************/
+/******** MISC ********/
+/***********************/
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background: $lightGrey;
+  border-radius: 50%;
+  margin-bottom: 20px;
 }

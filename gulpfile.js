@@ -1,11 +1,11 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-// var cleanCSS = require('gulp-clean-css');
 var browserSync = require('browser-sync').create();
 var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var cssnano = require("cssnano");
 var sourcemaps = require("gulp-sourcemaps");
+var uglify = require('gulp-uglify');
 
 function style() {
   return gulp.src('build/scss/main.scss')
@@ -33,8 +33,17 @@ function watch() {
   gulp.watch('build/js/*.js').on('change', browserSync.reload);
 }
 
+// function uglify() {
+//   return gulp.src('build/js/*.js')
+//     .pipe(uglify())
+//     .pipe(rename({ extname: '.min.js'}))
+//     .pipe(dest('dist/js/'))
+//     .pipe(browserSync.stream());
+// }
+
 gulp.task('default', watch);
 
 
 exports.style = style;
 exports.watch = watch;
+// exports.uglify = uglify;

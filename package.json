@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Landing page for the OCP Lift program",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/open-contracting-partnership/lift.git"
+    "type": "git",
+    "url": "https://github.com/open-contracting-partnership/lift.git"
   },
   "main": "index.html",
   "scripts": {
@@ -19,6 +19,7 @@
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
   }
 }
