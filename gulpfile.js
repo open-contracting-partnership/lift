@@ -26,7 +26,8 @@ function watch() {
   browserSync.init({
     server: {
       baseDir: './'
-    }
+    },
+    ghostMode: false
   });
   gulp.watch('build/scss/*.scss', style);
   gulp.watch('index.html').on('change', browserSync.reload);

@@ -300,13 +300,10 @@ footer a:link, footer a:active, footer a:visited {
   justify-content: center;
   display: flex; }
 
-.landingText__column--right {
-  border-left: 5px solid #fff;
-  padding-left: 20px; }
-  @media (max-width: 600px) {
-    .landingText__column--right {
-      border: 0;
-      padding: 0; } }
+@media (max-width: 600px) {
+  .landingText__column--right {
+    border: 0;
+    padding: 0; } }
 
 .subSection {
   display: flex;
