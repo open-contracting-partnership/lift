@@ -1169,3 +1169,17 @@ input {
 }
 /* The no-blur class will be applied when the browser does not support CSS filters
  Instead of showing a blurred image, a gray div with the shimmer animation is shown */
+
+// https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
+
+ body:not(.user-is-tabbing) {
+   button,
+   input,
+   select,
+   summary,
+   textarea {
+     &:focus {
+       outline: none;
+     }
+   }
+ }

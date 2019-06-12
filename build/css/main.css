@@ -818,3 +818,9 @@ input {
 
 /* The no-blur class will be applied when the browser does not support CSS filters
  Instead of showing a blurred image, a gray div with the shimmer animation is shown */
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) summary:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: none; }
