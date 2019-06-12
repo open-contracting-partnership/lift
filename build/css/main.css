@@ -466,6 +466,10 @@ section {
   margin-top: -60px;
   padding: 80px 40px 140px;
   position: relative; }
+  @media (max-width: 600px) {
+    .section--angled {
+      padding-left: calc(40px / 2);
+      padding-right: calc(40px / 2); } }
   .section--angled::before {
     content: 'test';
     position: absolute;
@@ -503,6 +507,9 @@ footer {
       padding: 10px calc(40px / 2) 20px; } }
   footer > .container {
     padding: 50px 40px; }
+    @media (max-width: 600px) {
+      footer > .container {
+        padding: 50px 0; } }
 
 footer a:link, footer a:active, footer a:visited {
   color: white; }
@@ -511,6 +518,9 @@ footer a:link, footer a:active, footer a:visited {
   margin: 100px auto 60px;
   width: 80%;
   text-align: center; }
+  @media (max-width: 600px) {
+    .heroText {
+      width: 100%; } }
   .heroText h1 {
     font-size: 56px;
     line-height: 1;
@@ -518,6 +528,7 @@ footer a:link, footer a:active, footer a:visited {
 
 .heroPhoto {
   width: 100%;
+  max-width: 1500px;
   height: 800px;
   display: flex;
   position: fixed;
@@ -539,10 +550,10 @@ footer a:link, footer a:active, footer a:visited {
   @media (max-width: 600px) {
     .photoBG {
       background-image: url("../img/bg_mobile.jpg");
-      padding-top: 100px;
       background-position: left;
       background-attachment: scroll;
-      min-height: 0; } }
+      min-height: 0;
+      height: 650px; } }
   .photoBG::before {
     content: ''; }
     @media (max-width: 600px) {

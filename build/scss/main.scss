@@ -5,6 +5,7 @@
 $sitePad: 40px;
 $gutter: 40px;
 $triangleOffset: 60px;
+$maxWidth: 1500px;
 
 $green: #C7D317;
 $lightGrey: #F5F5F5;
@@ -643,7 +644,7 @@ main {
 }
 
 .container {
-  max-width: 1500px;
+  max-width: $maxWidth;
   margin: 0 auto;
 
   &--flex {
@@ -666,6 +667,11 @@ section {
   margin-top: -#{$triangleOffset};
   padding: 80px $sitePad 140px;
   position: relative;
+
+  @include mobile {
+    padding-left: calc(#{$sitePad} / 2);
+    padding-right: calc(#{$sitePad} / 2);
+  }
 
   &::before {
     content: 'test';
@@ -718,6 +724,10 @@ footer {
 
   > .container {
     padding: 50px $sitePad;
+
+    @include mobile {
+      padding: 50px 0;
+    }
   }
 }
 
@@ -734,6 +744,10 @@ footer a {
   width: 80%;
   text-align: center;
 
+  @include mobile {
+    width: 100%;
+  }
+
   h1 {
     font-size: 56px;
     line-height: 1;
@@ -743,6 +757,7 @@ footer a {
 
 .heroPhoto {
   width: 100%;
+  max-width: $maxWidth;
   // min-height: 700px;
   height: 800px;
   display: flex;
@@ -768,10 +783,10 @@ footer a {
 
   @include mobile {
     background-image: url('../img/bg_mobile.jpg');
-    padding-top: 100px;
     background-position: left;
     background-attachment: scroll;
     min-height: 0;
+    height: 650px;
   }
 
   &::before {
