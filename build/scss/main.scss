@@ -8,10 +8,12 @@ $triangleOffset: 60px;
 
 $green: #C7D317;
 $lightGrey: #F5F5F5;
+$grey: #424242;
 $darkGrey: #323232;
 $red: #FB6045;
 
-$eesti: 'GT Eesti Pro Display';
+$eestiDisplay: 'GT Eesti Pro Display';
+$eestiText: 'GT Eesti Pro Text';
 $openSans: 'Open Sans', sans-serif;
 
 /***********************/
@@ -469,9 +471,31 @@ template {
   font-weight: 700;
 }
 
+@font-face {
+  font-family: 'GT Eesti Pro Text';
+  src: url('../fonts/GTEestiProText-Light.eot');
+  src: url('../fonts/GTEestiProText-Light.eot') format('embedded-opentype'),
+       url('../fonts/GTEestiProText-Light.woff2') format('woff2'),
+       url('../fonts/GTEestiProText-Light.woff') format('woff'),
+       url('../fonts/GTEestiProText-Light.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GT Eesti Pro Text';
+  src: url('../fonts/GTEestiProText-Bold.eot');
+  src: url('../fonts/GTEestiProText-Bold.eot') format('embedded-opentype'),
+       url('../fonts/GTEestiProText-Bold.woff2') format('woff2'),
+       url('../fonts/GTEestiProText-Bold.woff') format('woff'),
+       url('../fonts/GTEestiProText-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 h1 {
   color: $darkGrey;
-  font-family: $eesti;
+  font-family: $eestiDisplay;
   font-size: 46px;
   font-weight: 700;
   line-height: .93;
@@ -490,7 +514,7 @@ section > h1 + p {
 }
 
 h2 {
-  font-family: $eesti;
+  font-family: $eestiDisplay;
   font-size: 26px;
   font-weight: 700;
   color: $darkGrey;
@@ -523,8 +547,9 @@ h3 {
 
 p, li {
   font-size: 18px;
-  line-height: 1.4;
-  margin-bottom: 10px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  color: $grey;
 
   .darkBG & {
     color: white;
@@ -606,7 +631,7 @@ nav a {
 
 body {
   background: #e4e4e4;
-  font-family: $eesti;
+  font-family: $eestiText;
   font-weight: 500;
   font-smoothing: antialiased;
   font-size: 18px;
@@ -657,6 +682,12 @@ section {
   &.section--flatBottom {
     clip-path: polygon(0 $triangleOffset, 50% 0, 100% $triangleOffset, 100% 100%,0 100%);
     margin-bottom: 0;
+  }
+
+  &.section--noBorder.section--noBorder { // doubled for specificity
+    &::before {
+      background: none;
+    }
   }
 }
 
@@ -765,6 +796,7 @@ footer a {
   &.section--angled {
     &::before {
       background: white;
+      // background: $darkGrey;
     }
   }
 }
