@@ -30,7 +30,7 @@ function watch() {
     ghostMode: false
   });
   gulp.watch('build/scss/*.scss', style);
-  gulp.watch('index.html').on('change', browserSync.reload);
+  gulp.watch('*.html').on('change', browserSync.reload);
   gulp.watch('build/js/*.js').on('change', browserSync.reload);
 }
 
