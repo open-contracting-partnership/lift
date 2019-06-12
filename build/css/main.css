@@ -568,7 +568,7 @@ footer a:link, footer a:active, footer a:visited {
         z-index: 0; } }
 
 .greyBG {
-  background: url("../img/concrete_wall.png") repeat #F6F6F6; }
+  background: url("../img/concrete_wall.jpg") repeat #F6F6F6; }
   .greyBG.section--angled::before {
     background: white; }
 
