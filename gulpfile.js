@@ -27,7 +27,7 @@ function watch() {
     server: {
       baseDir: './'
     },
-    ghostMode: false
+    // ghostMode: false
   });
   gulp.watch('build/scss/*.scss', style);
   gulp.watch('*.html').on('change', browserSync.reload);

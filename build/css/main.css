@@ -439,6 +439,9 @@ nav a {
   box-sizing: border-box;
   transition: .2s all ease; }
 
+::selection {
+  background: #C7D317; }
+
 body {
   background: #e4e4e4;
   font-family: "GT Eesti Pro Text";
@@ -772,6 +775,12 @@ input {
 .blurry-load {
   filter: blur(8px); }
 
+.teal {
+  color: #23b2a7; }
+
+.blue {
+  color: #6c75e1; }
+
 @keyframes blurOut {
   0% {
     filter: blur(20px); }
@@ -798,6 +807,163 @@ input {
   font-size: 22px;
   border: 0;
   padding: 10px; }
+
+/***********************/
+/****** TIMELINE *******/
+/***********************/
+.cd-main-header {
+  height: 200px; }
+
+.cd-timeline {
+  overflow: hidden;
+  padding: 30px 0; }
+
+.cd-timeline__container {
+  position: relative;
+  padding: 40px 0; }
+  .cd-timeline__container h2 {
+    margin: 0;
+    font-size: 26px; }
+  .cd-timeline__container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #424242;
+    opacity: .4;
+    left: 50%;
+    transform: translateX(-50%); }
+    @media (max-width: 600px) {
+      .cd-timeline__container::before {
+        left: 18px; } }
+
+.cd-timeline__block {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 15px; }
+  @media (max-width: 600px) {
+    .cd-timeline__block {
+      flex-direction: row-reverse; } }
+  .cd-timeline__block:nth-child(even) {
+    flex-direction: row-reverse; }
+  .cd-timeline__block:last-child {
+    margin-bottom: 0; }
+
+.cd-timeline__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  width: 60px;
+  height: 60px;
+  order: 1;
+  margin: 0 calc(5% - 30px);
+  will-change: transform;
+  z-index: 2; }
+  @media (max-width: 600px) {
+    .cd-timeline__img {
+      width: 40px;
+      height: 40px;
+      margin: 0 calc(5% - 25px); } }
+  .cd-timeline__img img {
+    width: 24px;
+    height: 24px; }
+
+.cd-timeline__img--part0 {
+  background-color: #C7D317; }
+
+.cd-timeline__img--part1 {
+  background-color: #23b2a7; }
+
+.cd-timeline__img--part2 {
+  background-color: #6c75e1; }
+
+.cd-timeline__content {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+  width: 45%;
+  flex-grow: 0;
+  will-change: transform;
+  margin: 0 0 70px; }
+  @media (max-width: 600px) {
+    .cd-timeline__content {
+      flex-grow: 1; } }
+
+.cd-timeline__date {
+  position: absolute;
+  width: 100%;
+  left: 125%;
+  top: 10px;
+  color: #323232;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase; }
+  @media (max-width: 600px) {
+    .cd-timeline__date {
+      position: static; } }
+  .cd-timeline__block:nth-child(even) .cd-timeline__date {
+    left: auto;
+    right: 125%;
+    text-align: right; }
+    @media (max-width: 600px) {
+      .cd-timeline__block:nth-child(even) .cd-timeline__date {
+        text-align: left; } }
+
+.cd-timeline__year {
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 2px;
+  opacity: .5; }
+
+.cd-timeline__img--hidden, .cd-timeline__content--hidden {
+  visibility: hidden; }
+
+.cd-timeline__img--bounce-in {
+  animation: cd-bounce-1 0.6s; }
+
+.cd-timeline__content--bounce-in {
+  animation: cd-bounce-2 0.6s; }
+
+.cd-timeline__block:nth-child(even) .cd-timeline__content--bounce-in {
+  animation-name: cd-bounce-2-inverse; }
+
+@keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    transform: scale(0.5); }
+  60% {
+    opacity: 1;
+    transform: scale(1.2); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes cd-bounce-2 {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); }
+  60% {
+    opacity: 1;
+    transform: translateX(20px); }
+  100% {
+    transform: translateX(0); } }
+
+@keyframes cd-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px); }
+  100% {
+    transform: translateX(0); } }
 
 /***********************/
 /****** PLUG-INS *******/
