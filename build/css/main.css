@@ -510,6 +510,8 @@ footer {
     @media (max-width: 600px) {
       footer > .container {
         padding: 50px 0; } }
+  footer p {
+    color: white; }
 
 footer a:link, footer a:active, footer a:visited {
   color: white; }
