@@ -767,6 +767,12 @@ input {
   border-radius: 50%;
   margin-bottom: 20px; }
 
+.icon {
+  display: block;
+  margin: 0 auto; }
+  .icon img {
+    width: 120px; }
+
 .centered {
   text-align: center;
   margin-left: auto;

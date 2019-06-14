@@ -47,4 +47,5 @@ gulp.task('default', watch);
 
 exports.style = style;
 exports.watch = watch;
+exports.cwebp = cwebp;
 // exports.uglify = uglify;

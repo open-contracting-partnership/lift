@@ -1097,6 +1097,15 @@ input {
   margin-bottom: 20px;
 }
 
+.icon {
+  display: block;
+  margin: 0 auto;
+
+  img {
+    width: 120px;
+  }
+}
+
 .centered {
   text-align: center;
   margin-left: auto;
