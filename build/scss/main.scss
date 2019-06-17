@@ -1106,6 +1106,14 @@ input {
   }
 }
 
+.flex {
+  display: flex;
+}
+
+.flex--centered {
+  justify-content: center;
+}
+
 .centered {
   text-align: center;
   margin-left: auto;
