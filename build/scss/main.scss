@@ -530,12 +530,16 @@ h2 {
 }
 
 h3 {
-  border-bottom: 2px solid white;
-  padding-bottom: 5px;
+
   margin: 0 0 10px;
 
   @include mobile {
     margin-top: 20px;
+  }
+
+  footer & {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
   }
 }
 
@@ -618,6 +622,16 @@ nav a {
 
   &:hover {
     text-decoration: underline;
+  }
+
+  &.active {
+    font-weight: 700;
+
+    &:active,
+    &:visited,
+    &:link {
+      color: $green;
+    }
   }
 }
 
@@ -1104,6 +1118,14 @@ input {
   img {
     width: 120px;
   }
+}
+
+.bioPhoto img {
+  width: 180px;
+  border-radius: 50%;
+  margin: 0 auto 10px;;
+  display: block;
+  border: 10px solid white;
 }
 
 .flex {

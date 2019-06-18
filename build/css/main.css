@@ -368,12 +368,13 @@ h2 {
     color: white; }
 
 h3 {
-  border-bottom: 2px solid white;
-  padding-bottom: 5px;
   margin: 0 0 10px; }
   @media (max-width: 600px) {
     h3 {
       margin-top: 20px; } }
+  footer h3 {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px; }
 
 .subheading {
   font-weight: 500;
@@ -429,6 +430,10 @@ nav a {
     text-decoration: none; }
   nav a:hover {
     text-decoration: underline; }
+  nav a.active {
+    font-weight: 700; }
+    nav a.active:active, nav a.active:visited, nav a.active:link {
+      color: #C7D317; }
 
 /***********************/
 /****** STRUCTURE ******/
@@ -772,6 +777,13 @@ input {
   margin: 0 auto; }
   .icon img {
     width: 120px; }
+
+.bioPhoto img {
+  width: 180px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  display: block;
+  border: 10px solid white; }
 
 .flex {
   display: flex; }
