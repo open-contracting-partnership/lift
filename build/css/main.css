@@ -905,7 +905,8 @@ article {
     max-height: 70vh; }
     @media (max-width: 600px) {
       .article--featured picture {
-        display: block; } }
+        display: block;
+        margin: 0 auto 10px; } }
     .article--featured picture > * {
       object-fit: cover;
       max-width: 100%; }
