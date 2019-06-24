@@ -509,6 +509,9 @@ section {
     .section--textOnly {
       width: 100%; } }
 
+.section--noHeading {
+  padding-top: 110px; }
+
 strong {
   font-weight: 700; }
 
