@@ -427,18 +427,129 @@ header {
       header > .container {
         padding: 10px calc(40px / 2); } }
 
+nav {
+  text-align: right; }
+  @media (max-width: 600px) {
+    nav {
+      text-align: left; } }
+
 nav a {
   margin-left: 20px;
   text-transform: uppercase; }
+  @media (max-width: 600px) {
+    nav a {
+      display: inline-block;
+      margin: 0 0 10px 0;
+      font-size: 22px;
+      display: block; } }
   nav a:active, nav a:visited, nav a:link {
     color: white;
     text-decoration: none; }
+    @media (max-width: 600px) {
+      nav a:active, nav a:visited, nav a:link {
+        color: #323232; } }
   nav a:hover {
     text-decoration: underline; }
   nav a.active {
     font-weight: 700; }
     nav a.active:active, nav a.active:visited, nav a.active:link {
       color: #C7D317; }
+
+.languageSelect {
+  margin-left: 20px;
+  text-align: center; }
+  @media (max-width: 600px) {
+    .languageSelect {
+      margin: 0;
+      text-align: left; } }
+  .languageSelect label {
+    font-size: 12px;
+    letter-spacing: .5px;
+    color: white;
+    opacity: .5;
+    margin-bottom: 3px;
+    text-align: center; }
+    @media (max-width: 600px) {
+      .languageSelect label {
+        color: #323232;
+        text-align: left; } }
+  .languageSelect select {
+    background: #323232;
+    background: linear-gradient(to bottom, #565656 1%, #323232 86%);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px; }
+    @media (max-width: 600px) {
+      .languageSelect select {
+        font-size: 20px;
+        padding: 9px; } }
+
+.menuWrap {
+  display: flex;
+  align-items: center; }
+  @media (max-width: 600px) {
+    .menuWrap {
+      position: absolute;
+      right: calc(40px / 2 * -1);
+      background: #F5F5F5;
+      flex-direction: column;
+      padding: 30px;
+      margin-top: 26px;
+      transform: translate(100%, 0); } }
+
+.menuToggle {
+  display: flex;
+  position: relative; }
+  @media (max-width: 600px) {
+    .menuToggle {
+      display: block; } }
+  .menuToggle input {
+    display: none; }
+    @media (max-width: 600px) {
+      .menuToggle input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2; } }
+    @media (max-width: 600px) {
+      .menuToggle input:checked ~ .menuWrap {
+        transform: none; } }
+    .menuToggle input:checked ~ span {
+      display: none; }
+      @media (max-width: 600px) {
+        .menuToggle input:checked ~ span {
+          display: block;
+          opacity: 1;
+          transform: rotate(45deg) translate(-2px, -1px);
+          background: white; } }
+      .menuToggle input:checked ~ span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2); }
+      .menuToggle input:checked ~ span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px); }
+  .menuToggle span {
+    display: none; }
+    @media (max-width: 600px) {
+      .menuToggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background: #cdcdcd;
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease; }
+        .menuToggle span:first-child {
+          transform-origin: 0% 0%; }
+        .menuToggle span:nth-last-child(2) {
+          transform-origin: 0% 100%; } }
 
 /***********************/
 /****** STRUCTURE ******/
@@ -605,6 +716,9 @@ footer a:link, footer a:active, footer a:visited {
 
 .logo {
   width: 120px; }
+  @media (max-width: 600px) {
+    .logo {
+      width: 100px; } }
 
 #lift path {
   fill: #C7D317; }
@@ -1034,7 +1148,8 @@ input {
     transition: .2s all ease; }
 
 .flex {
-  display: flex; }
+  display: flex;
+  align-items: center; }
 
 .flex--centered {
   justify-content: center; }
