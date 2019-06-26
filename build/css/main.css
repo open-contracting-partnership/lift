@@ -721,7 +721,7 @@ footer a:link, footer a:active, footer a:visited {
     width: 110px; }
   @media (max-width: 600px) {
     .logo {
-      width: 100px; } }
+      width: 110px; } }
 
 #lift path {
   fill: #C7D317; }
