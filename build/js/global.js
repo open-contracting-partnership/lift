@@ -173,3 +173,28 @@ window.addEventListener("DOMContentLoaded", () => {
 		scrolling = false;
 	};
 })();
+
+// add class to nav bar on scroll
+
+var scrollPos = window.scrollY;
+var header = document.getElementById("header");
+
+function add_class_on_scroll() {
+    header.classList.add("scrolling");
+}
+
+function remove_class_on_scroll() {
+    header.classList.remove("scrolling");
+}
+
+window.addEventListener('scroll', function(){
+  scrollPos = window.scrollY;
+
+  if(scrollPos > 20){
+      add_class_on_scroll();
+  }
+  else {
+      remove_class_on_scroll();
+  }
+  console.log(scrollPos);
+});

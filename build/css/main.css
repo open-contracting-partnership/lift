@@ -715,7 +715,10 @@ footer a:link, footer a:active, footer a:visited {
   text-align: right; }
 
 .logo {
-  width: 120px; }
+  width: 160px;
+  transition: .2s all ease; }
+  .scrolling .logo {
+    width: 110px; }
   @media (max-width: 600px) {
     .logo {
       width: 100px; } }

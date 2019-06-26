@@ -1028,7 +1028,12 @@ footer a {
 }
 
 .logo {
-  width: 120px;
+  width: 160px;
+  transition: .2s all ease;
+
+  .scrolling & {
+    width: 110px;
+  }
 
   @include mobile {
     width: 100px;
